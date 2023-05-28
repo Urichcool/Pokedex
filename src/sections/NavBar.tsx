@@ -26,6 +26,15 @@ function NavBar() {
       route: "/about",
     },
   ];
+
+  const ul = (index: number) => {
+    const underlines = document.querySelectorAll<HTMLElement>(".underline")
+    for (let i = 0; i < underlines.length; i += 1){
+      underlines[i].style.transform = "translate3d(" + index * 100 + " %,0,0)"
+    }
+}
+
+
   return (
     <nav>
       <div className="block">
