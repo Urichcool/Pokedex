@@ -46,22 +46,21 @@ nav {
   }
 }
 
-
-.underline{
-    display: block;
-    position: absolute;
-    z-index: 0;
-    bottom: 0;
-    background-color: white;
-    width: 20%;
-    height: calc(4px / 2);
-    mix-blend-mode: initial;
-    pointer-events: none;
-    transition: 0.5s ease-in-out;
-    &:nth-child(1) {
-       transition: calc(0.5s * 0.8) ease-in-out; 
-    }
-        &:nth-child(2) {
-       transition: calc(0.5s * 1.2) ease-in-out; 
-    }
+.underline {
+  display: block;
+  position: absolute;
+  z-index: 0;
+  bottom: 0;
+  background-color: white;
+  width: 20%;
+  height: calc(4px / 2);
+  mix-blend-mode: initial;
+  pointer-events: none;
+  transition: 0.5s ease-in-out;
+  &:nth-child(1) {
+    transition: calc(0.5s * 0.8) ease-in-out;
+  }
+  &:nth-child(2) {
+    transition: calc(0.5s * 1.2) ease-in-out;
+  }
 }
