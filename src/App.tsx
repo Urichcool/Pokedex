@@ -10,6 +10,8 @@ import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom'
 import MyList from './pages/MyList'
 import Pokemon from './pages/Pokemon'
 import Search from './pages/Search'
+import { ToastContainer, ToastOptions, toast } from 'react-toastify'
+ import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
@@ -27,6 +29,7 @@ function App() {
             <Route element={<Navigate to='/pokemon/1'/>} path="*"/>
           </Routes>
           <Footer />
+          <ToastContainer/>
         </div>
       </BrowserRouter>
     </div>

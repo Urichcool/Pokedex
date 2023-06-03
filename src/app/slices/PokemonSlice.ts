@@ -5,6 +5,7 @@ import {
 } from "../../utils/Types";
 import { getInitialPokemonData } from "../reducers/getInitialPokemonData";
 import { getPokemonData } from "../reducers/getPokemonData";
+import { store } from "../store";
 
 const initialState: PokemonTypeInitialState = {
   allPokemon: undefined,
@@ -28,9 +29,12 @@ export const PokemonSlice = createSlice({
       }
     },
     removeFromCompare: (state, action) => {
-       const index = state.compareQueue.findIndex(
-         (pokemon: generatedPokemonType) => pokemon.id === action.payload.id
-       );
+      const index = state.compareQueue.findIndex(
+        (pokemon: generatedPokemonType) => pokemon.id === action.payload.id
+      );
+      const queue = [...state.compareQueue];
+      queue.splice(index, 1);
+      state.compareQueue = queue;
     },
   },
   extraReducers: (builder) => {
@@ -43,4 +47,4 @@ export const PokemonSlice = createSlice({
   },
 });
 
-export const {} = PokemonSlice.actions;
+export const {addToCompare,removeFromCompare} = PokemonSlice.actions;
