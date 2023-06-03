@@ -7,7 +7,9 @@ import Wrapper from "../sections/Wrapper";
 
 function Search() {
   const dispatch = useAppDispatch();
-  const { allPokemon, randomPokemons } = useAppSelector(({ pokemon }) => pokemon);
+  const { allPokemon, randomPokemons } = useAppSelector(
+    ({ pokemon }) => pokemon
+  );
 
   useEffect(() => {
     dispatch(getInitialPokemonData());
@@ -16,16 +18,22 @@ function Search() {
   useEffect(() => {
     if (allPokemon) {
       const clonedPokemons = [...allPokemon];
-      const randomPokemonsId = clonedPokemons.sort(
-        () => Math.random() - Math.random()
-      ).slice(0, 20);
-      dispatch(getPokemonData(randomPokemonsId))
+      const randomPokemonsId = clonedPokemons
+        .sort(() => Math.random() - Math.random())
+        .slice(0, 20);
+      dispatch(getPokemonData(randomPokemonsId));
     }
-  }, [allPokemon,dispatch]);
+  }, [allPokemon, dispatch]);
+
+  cons
 
   return (
     <div className="search">
-      <input type="text" name="" id="" />
+      <input
+        type="text"
+        className="pokemon-searchbar"
+        placeholder="Search Pokemon"
+      />
       <PokemonCardGrid pokemons={randomPokemons!} />
     </div>
   );
