@@ -1,6 +1,6 @@
 import React from "react";
 import { FaPlus } from "react-icons/fa";
-import { pokemonTypeInterface, userPokemonsType } from "../utils/Types";
+import { pokemonStatType, pokemonTypeInterface, userPokemonsType } from "../utils/Types";
 
 function CompareContainer({
   pokemon = undefined,
@@ -8,8 +8,21 @@ function CompareContainer({
 }: {
   pokemon?: userPokemonsType;
   isEmpty?: boolean;
-}) {
-  const getStats = () => {};
+  }) {
+  
+  const createStatsArray = (types:pokemonTypeInterface[], statType:pokemonStatType) => {
+    const statsArray: { name: string; image: string }[] = [];
+    const statsSet = new Set<string>();
+    types.forEach((type: pokemonTypeInterface) => {
+      const key = Object.keys(type)[0];
+      type[key]
+    })
+  }
+  
+  const getStats = () => {
+    const data = createStatsArray(pokemon?.types!, "strength");
+    return <></>
+  };
 
   return (
     <div className="compare-container">
@@ -46,7 +59,7 @@ function CompareContainer({
                   })}
                 </div>
               </div>
-              {/* {getStats()} */}
+              {getStats()}
             </div>
           </div>
           <div className="compare-action-buttons">
