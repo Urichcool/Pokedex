@@ -1,5 +1,6 @@
 import React from "react";
 import { FaPlus } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../app/hooks";
 import { removeFromCompare } from "../app/slices/PokemonSlice";
 import { pokemonTypes } from "../utils/getPokemonTypes";
@@ -17,6 +18,7 @@ function CompareContainer({
   isEmpty?: boolean;
 }) {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const createStatsArray = (
     types: pokemonTypeInterface[],
     statType: pokemonStatType
@@ -135,7 +137,7 @@ function CompareContainer({
                   {pokemon?.types.map((type: pokemonTypeInterface) => {
                     const keys = Object.keys(type);
                     return (
-                      <div className="pokemon-type" >
+                      <div className="pokemon-type">
                         <img
                           src={type[keys[0]].image}
                           alt="pokemon type"
@@ -151,7 +153,12 @@ function CompareContainer({
           </div>
           <div className="compare-action-buttons">
             <button className="compare-btn">Add</button>
-            <button className="compare-btn">View</button>
+            <button
+              className="compare-btn"
+              onClick={() => navigate(`/pokemon/${pokemon.id}`)}
+            >
+              View
+            </button>
             <button
               className="compare-btn"
               onClick={() => dispatch(removeFromCompare({ id: pokemon.id }))}
