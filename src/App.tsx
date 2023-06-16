@@ -13,11 +13,21 @@ import Search from "./pages/Search";
 import { ToastContainer, ToastOptions, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useAppDispatch, useAppSelector } from "./app/hooks";
-import { clearToasts } from "./app/slices/AppSlice";
+import { clearToasts, setUserStatus } from "./app/slices/AppSlice";
+import { onAuthStateChanged } from "firebase/auth";
+import { firebaseAuth } from "./utils/FirebaseConfig";
 
 function App() {
   const { toasts } = useAppSelector(({ app }) => app);
   const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    onAuthStateChanged(firebaseAuth, (currentUser) => {
+      if (currentUser) {
+        dispatch(setUserStatus({ email: currentUser.email }));
+      }
+    });
+  }, [dispatch]);
 
   useEffect(() => {
     if (toast.length) {
@@ -26,13 +36,12 @@ function App() {
         autoClose: 2000,
         pauseOnHover: true,
         draggable: true,
-        theme:"dark"
-      }
+        theme: "dark",
+      };
       toasts.forEach((message: string) => {
         toast(message, toastOptions);
         dispatch(clearToasts());
       });
-      
     }
   }, [toasts, dispatch]);
 
