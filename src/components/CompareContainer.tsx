@@ -2,6 +2,7 @@ import React from "react";
 import { FaPlus } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../app/hooks";
+import { addPokemonToList } from "../app/reducers/addPokemonToList";
 import { removeFromCompare } from "../app/slices/PokemonSlice";
 import { pokemonTypes } from "../utils/getPokemonTypes";
 import {
@@ -152,7 +153,9 @@ function CompareContainer({
             </div>
           </div>
           <div className="compare-action-buttons">
-            <button className="compare-btn">Add</button>
+            <button className="compare-btn"
+            onClick={() => dispatch(addPokemonToList(pokemon))}
+            >Add</button>
             <button
               className="compare-btn"
               onClick={() => navigate(`/pokemon/${pokemon.id}`)}

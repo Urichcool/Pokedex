@@ -4,6 +4,7 @@ import { pokemonListRef } from "../../utils/FirebaseConfig";
 import { defaultImages, images } from "../../utils/getPokemonImages";
 import { userPokemonsType } from "../../utils/Types";
 import { RootState } from "../store";
+import { pokemonTypes } from "../../utils/getPokemonTypes";
 
 export const getUserPokemons = createAsyncThunk(
   "pokemon/userList",
@@ -25,14 +26,15 @@ export const getUserPokemons = createAsyncThunk(
         fetchedPokemons.forEach(async (pokemon) => {
           const pokemons = await pokemon.data().pokemon;
           //@ts-ignore
-          let image = images[pokemon.id];
+          let image = images[pokemons.id];
           if (!image) {
             //@ts-ignore
-            image = defaultImages[pokemon.id];
+            image = defaultImages[pokemons.id];
           }
-          const types = pokemon.types.map((name: string) => ({
+          //@ts-ignore
+          const types = pokemons.types.map((name: string) => ({
             //@ts-ignore
-            [name]: pokemon[name],
+            [name]: pokemonTypes[name],
           }));
           userPokemons.push({
             ...pokemons,
@@ -43,6 +45,7 @@ export const getUserPokemons = createAsyncThunk(
         });
           return userPokemons;
       }
+      return [];
     } catch (error) {
       console.log(error);
     }
