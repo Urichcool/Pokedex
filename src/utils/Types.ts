@@ -4,11 +4,23 @@ export interface AppTypeInitialState {
   currentPokemonTab: string;
 }
 
+export interface CurrentPokemonType{
+  id: number,
+  name: string,
+  types: pokemonTypeInterface[];
+  image: string;
+  stats: pokemonStatsType[];
+  encounters: string[];
+  evolution: { level: number; pokemon: { name: string; url: string } }[];
+  pokemonAbilities: { abilites: string[]; moves: string[] };
+}
+
 export interface PokemonTypeInitialState {
   allPokemon: undefined | genericPokemonType[];
   randomPokemons: undefined | generatedPokemonType[];
   compareQueue: generatedPokemonType[];
   userPokemons: userPokemonsType[];
+  currentPokemon: CurrentPokemonType | undefined;
 }
 
 export interface genericPokemonType {
