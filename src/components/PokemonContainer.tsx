@@ -1,0 +1,19 @@
+import React from 'react'
+
+function PokemonContainer({image}: {image:string}) {
+  return (
+    <div className="circle-container">
+      <div className="outer-circle">
+        <div className="iner-circle">
+          <img src={image} alt="pokemon"></img>
+        </div>
+        <div className="lines">
+          <div className="line line-1"></div>
+          <div className="line line-2"></div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default PokemonContainer

@@ -12,7 +12,7 @@ export interface CurrentPokemonType{
   stats: pokemonStatsType[];
   encounters: string[];
   evolution: { level: number; pokemon: { name: string; url: string } }[];
-  pokemonAbilities: { abilites: string[]; moves: string[] };
+  pokemonAbilities: { abilities: string[]; moves: string[] };
 }
 
 export interface PokemonTypeInitialState {

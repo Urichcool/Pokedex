@@ -1,0 +1,19 @@
+.circle-container{
+    display: flex;
+    margin-top: 3rem;
+    background-color: red;
+    .outer-circle{
+        background-color: orange;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 24rem;
+        width: 24rem;
+        border: 0.2rem solid var(--accent-color);
+        border-radius: 50rem;
+position: relative;
+.inner-circle{
+    background-color: green;
+}
+    }
+}
