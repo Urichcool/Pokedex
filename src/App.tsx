@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import Background from "./components/Background";
 import Footer from "./sections/Footer";
 import NavBar from "./sections/NavBar";
-import Wrapper from "./sections/Wrapper";
 import About from "./pages/About";
 import Compare from "./pages/Compare";
 import "./scss/index.scss";

@@ -4,7 +4,7 @@ function PokemonContainer({image}: {image:string}) {
   return (
     <div className="circle-container">
       <div className="outer-circle">
-        <div className="iner-circle">
+        <div className="inner-circle">
           <img src={image} alt="pokemon"></img>
         </div>
         <div className="lines">

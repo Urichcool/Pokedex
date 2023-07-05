@@ -1,6 +1,8 @@
-import React from 'react'
-import { useAppSelector } from '../../app/hooks';
-import PokemonContainer from '../../components/PokemonContainer';
+import React from "react";
+import { useAppSelector } from "../../app/hooks";
+import Info from "../../components/Info";
+
+import PokemonContainer from "../../components/PokemonContainer";
 
 function Description() {
   const pokemonData = useAppSelector(
@@ -8,9 +10,14 @@ function Description() {
   );
   return (
     <div>
-      <PokemonContainer image={pokemonData?.image!} />
+      {pokemonData && (
+        <>
+          <Info data={pokemonData} />
+          <PokemonContainer image={pokemonData?.image!} />
+        </>
+      )}
     </div>
-  )
+  );
 }
 
-export default Description
+export default Description;
