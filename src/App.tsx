@@ -47,7 +47,7 @@ function App() {
   return (
     <div className="main-container">
       <Background />
-      <BrowserRouter>
+      <BrowserRouter basename="/Pokedex/">
         <div className="app">
           <NavBar />
           <Routes>
