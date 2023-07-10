@@ -47,7 +47,7 @@ function App() {
   return (
     <div className="main-container">
       <Background />
-      <BrowserRouter basename="/Pokedex/">
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <div className="app">
           <NavBar />
           <Routes>
